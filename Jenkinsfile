@@ -1,6 +1,7 @@
 pipeline {
     agent any
     
+    stages{
         stage("build"){
             steps {
                 bat "./mvnw.cmd package"
@@ -14,4 +15,5 @@ pipeline {
             junit stdioRetention: '', testResults: '**/target/surefire-reports/TEST*.xml'   
             }
         }
-    }}
+    }
+}
