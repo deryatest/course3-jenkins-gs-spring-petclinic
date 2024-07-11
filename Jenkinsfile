@@ -1,13 +1,12 @@
 pipeline {
     agent any
-    
-    stages{
+
+      stages{
         stage("build"){
             steps {
                 bat "./mvnw.cmd package"
             }
         }
-
         stage("capture"){
             steps {
              archiveArtifacts artifacts: '**/target/*.jar', followSymlinks: false
